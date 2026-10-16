@@ -1,304 +1,277 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isaias Gamarra | Ingeniero Informático</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-            --accent: #38bdf8;
-            --accent-hover: #0ea5e9;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* --- Header --- */
-        header {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .location {
-            color: var(--text-dim);
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
-
-        .bio {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            color: var(--text-dim);
-        }
-
-        /* --- Skills --- */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .skill-tag {
-            background: var(--card-bg);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid #334155;
-            color: var(--accent);
-        }
-
-        /* --- Projects Section --- */
-        .section-title {
-            margin: 80px 0 30px;
-            font-size: 1.8rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            border: 1px solid #334155;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .project-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--accent);
-        }
-
-        .project-tech {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-dim);
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .project-card p {
-            color: var(--text-dim);
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: var(--bg-color);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* --- Contact --- */
-        footer {
-            margin: 100px 0 50px;
-            text-align: center;
-            border-top: 1px solid #334155;
-            padding-top: 40px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-        }
-
-        @media (min-width: 768px) {
-            .project-grid {
-                grid-template-columns: 1fr 1fr;
+    <title>Servitec Gamarra | Ingeniería Informática & Soluciones Digitales</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        olive: '#4B5320',
+                        accentOrange: '#FF5722',
+                        charcoal: '#1E2022',
+                        skyTech: '#E8F1F5',
+                        pureWhite: '#FFFFFF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
             }
         }
-        /* Estilos adicionales para imágenes y nuevas secciones */
-        .project-img {
-            width: 100%;
-            height: 180px;
-            background-color: #334155; /* Color de carga */
-            border-radius: 8px;
-            margin-bottom: 20px;
-            object-fit: cover;
-            border: 1px solid #475569;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
-        }
-
-        .service-item {
-            background: rgba(56, 189, 248, 0.05);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px dashed var(--accent);
-        }
-
-        .experience-badge {
-            background: #1e293b;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 4px solid #818cf8;
-        }
-    </style>
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-skyTech text-charcoal font-sans antialiased selection:bg-accentOrange selection:text-white">
 
-    <div class="container">
-        <header>
-            <h1>Isaías Gamarra. Ingeniero Informático</h1>
-            <p class="location">Mérida, Venezuela</p>
-            <p class="bio">
-                Especializado en el desarrollo de soluciones de software escalables, automatización de procesos y optimización de flujos de trabajo mediante tecnología de vanguardia.
-            </p>
-            <div class="skills">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Web Development</span>
-                <span class="skill-tag">Telethon / Bots</span>
-                <span class="skill-tag">Desktop Apps</span>
-                <span class="skill-tag">Git</span>
+    <!-- Header / Hero Section -->
+    <header class="bg-pureWhite border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center">
+            <div class="flex items-center space-x-3 mb-3 sm:mb-0">
+                <div class="bg-olive text-white w-10 h-10 rounded-lg flex items-center justify-center font-display font-bold text-xl shadow-md">
+                    G
+                </div>
+                <div>
+                    <h1 class="font-display font-bold text-lg text-charcoal leading-tight">Servitec Gamarra</h1>
+                    <p class="text-xs text-olive font-medium">Ingeniería Informática & Soluciones Digitales</p>
+                </div>
             </div>
-        </header>
-
-        <h2 class="section-title">Servicios que Ofrezco</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <h4>🛠️ Desarrollo a Medida</h4>
-                <p>Creación de software para Windows y aplicaciones web interactivas utilizando Python y SQL.</p>
-            </div>
-            <div class="service-item">
-                <h4>🤖 Automatización de Procesos</h4>
-                <p>Bots de Telegram inteligentes (Telethon/MTProto) para atención al cliente y marketing automatizado.</p>
-            </div>
-            <div class="service-item">
-                <h4>⚙️ Soporte Técnico Especializado</h4>
-                <p>Mantenimiento preventivo y reparación electrónica de hardware crítico (Laptops y móviles).</p>
-            </div>
+            <nav class="flex items-center space-x-6 text-sm font-medium">
+                <a href="#servicios" class="hover:text-accentOrange transition-colors">Servicios</a>
+                <a href="#proyectos" class="hover:text-accentOrange transition-colors">Proyectos</a>
+                <a href="#experiencia" class="hover:text-accentOrange transition-colors">Trayectoria</a>
+                <a href="https://t.me/tecnimago" target="_blank" class="bg-accentOrange text-pureWhite px-4 py-2 rounded-lg font-semibold shadow hover:opacity-90 transition-opacity">
+                    <i class="fab fa-telegram-plane mr-1"></i> Contactar
+                </a>
+            </nav>
         </div>
+    </header>
 
-        <h2 class="section-title">Proyectos Destacados</h2>
-        
-        <div class="project-grid">
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+
+        <!-- Hero Intro -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8">
+            <div class="lg:col-span-8 space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-white px-3 py-1.5 rounded-full border border-gray-200 text-xs font-semibold text-olive shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-accentOrange animate-pulse"></span>
+                    <span>Mérida, Venezuela • Disponible para proyectos</span>
+                </div>
+                <h2 class="font-display font-extrabold text-4xl sm:text-5xl text-charcoal tracking-tight leading-tight">
+                    Precisión de hardware, <span class="text-olive">potencia de software.</span>
+                </h2>
+                <p class="text-lg text-gray-700 leading-relaxed font-normal">
+                    Hola, soy <strong class="text-charcoal font-semibold">Isaías Gamarra</strong>. Transformo y optimizo negocios a través de soluciones tecnológicas prácticas, eficientes y de alto rendimiento. Unimos la ingeniería de software con la resolución técnica real.
+                </p>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <span class="bg-pureWhite border border-gray-300 px-3.5 py-1.5 rounded-md text-xs font-medium text-charcoal shadow-xs">Python / Flet / Kivy</span>
+                    <span class="bg-pureWhite border border-gray-300 px-3.5 py-1.5 rounded-md text-xs font-medium text-charcoal shadow-xs">Telegram Bots (Telethon)</span>
+                    <span class="bg-pureWhite border border-gray-300 px-3.5 py-1.5 rounded-md text-xs font-medium text-charcoal shadow-xs">SQL & Bases de Datos</span>
+                    <span class="bg-pureWhite border border-gray-300 px-3.5 py-1.5 rounded-md text-xs font-medium text-charcoal shadow-xs">Soporte y Hardware</span>
+                </div>
+            </div>
+            <div class="lg:col-span-4 bg-pureWhite p-8 rounded-2xl border border-gray-200 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-olive/10 rounded-bl-full pointer-events-none"></div>
+                <h3 class="font-display font-bold text-xl text-olive mb-4">Enfoque de Valor</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                    No vendo código abstracto; ofrezco productos digitales funcionales que ahorran tiempo, optimizan recursos y generan tranquilidad operativa.
+                </p>
+                <a href="https://t.me/tecnimago" target="_blank" class="block w-full text-center bg-accentOrange text-pureWhite py-3 rounded-xl font-semibold shadow hover:opacity-95 transition">
+                    Hablemos de tu proyecto
+                </a>
+            </div>
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios" class="space-y-8">
+            <div class="border-b border-gray-300 pb-4">
+                <h2 class="font-display font-bold text-2xl sm:text-3xl text-olive">Soluciones y Servicios</h2>
+                <p class="text-sm text-gray-600 mt-1">Ingeniería orientada a resolver problemas reales de negocio.</p>
+            </div>
             
-            <div class="project-card">
-                <span class="project-tech">Web Development / UI-UX</span>
-                <h3>Mundo Safari Zoo</h3>
-                <p>Desarrollo y despliegue del sitio web oficial de Mundo Safari Zoo. Enfoque en diseño responsivo, optimización de carga y gestión de contenido multimedia para mejorar la presencia digital de la institución.</p>
-                <a href="https://www.mundosafarizoo.com" target="_blank" class="btn btn-primary">Visitar sitio</a>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-pureWhite p-6 rounded-2xl border border-gray-200 shadow-sm hover:border-olive transition-all">
+                    <div class="w-12 h-12 bg-skyTech text-olive rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-lg text-charcoal mb-2">Desarrollo a Medida</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Creación de software de escritorio para Windows y aplicaciones web interactivas utilizando Python y bases de datos robustas.
+                    </p>
+                </div>
+
+                <div class="bg-pureWhite p-6 rounded-2xl border border-gray-200 shadow-sm hover:border-olive transition-all">
+                    <div class="w-12 h-12 bg-skyTech text-olive rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-lg text-charcoal mb-2">Automatización & Bots</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Desarrollo de bots inteligentes en Telegram (Telethon / MTProto) para gestión de comunidades, flujos de trabajo y marketing.
+                    </p>
+                </div>
+
+                <div class="bg-pureWhite p-6 rounded-2xl border border-gray-200 shadow-sm hover:border-olive transition-all">
+                    <div class="w-12 h-12 bg-skyTech text-olive rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-lg text-charcoal mb-2">Soporte Técnico Avanzado</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Diagnóstico y reparación de hardware crítico, componentes electrónicos, laptops, smartphones y sistemas de cámaras IP.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos Destacados -->
+        <section id="proyectos" class="space-y-8">
+            <div class="border-b border-gray-300 pb-4">
+                <h2 class="font-display font-bold text-2xl sm:text-3xl text-olive">Proyectos e Ecosistema</h2>
+                <p class="text-sm text-gray-600 mt-1">Desarrollos propios y plataformas implementadas.</p>
             </div>
 
-            <div class="project-card">
-                <span class="project-tech">Python / SQL / Windows</span>
-                <h3>Sistema de Inventario SQL</h3>
-                <p>Aplicación de escritorio robusta para el control de inventarios. Implementa persistencia de datos mediante SQL, generación de reportes técnicos y alertas de stock en tiempo real para optimizar la cadena de suministros.</p>
-                <span class="btn" style="color: var(--text-dim); padding-left: 0;">Desktop App</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Telebackup -->
+                <div class="bg-pureWhite p-7 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-accentOrange/10 text-accentOrange text-xs font-semibold px-3 py-1 rounded-full">Producto Insignia</span>
+                            <span class="text-xs text-gray-500 font-medium">Móvil / Telegram</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-charcoal mb-2">Telebackup</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Backup automático y organizado de fotos, videos y documentos respaldados de forma segura en tu propio almacenamiento de Telegram. Tu espacio infinito.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span class="text-xs text-olive font-medium">Python & Telegram API</span>
+                        <span class="text-xs font-semibold text-charcoal">Respaldo Ilimitado</span>
+                    </div>
+                </div>
+
+                <!-- ZooTrack -->
+                <div class="bg-pureWhite p-7 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-olive/10 text-olive text-xs font-semibold px-3 py-1 rounded-full">B2B Especializado</span>
+                            <span class="text-xs text-gray-500 font-medium">Zoo Management</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-charcoal mb-2">ZooTrack</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Aplicación integral de inventario y seguimiento clínico de fauna desarrollada para el control veterinario y administrativo en zoológicos.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span class="text-xs text-olive font-medium">React Native / SQLite</span>
+                        <span class="text-xs font-semibold text-charcoal">Gestión Veterinaria</span>
+                    </div>
+                </div>
+
+                <!-- Mundo Safari Zoo -->
+                <div class="bg-pureWhite p-7 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-skyTech text-olive text-xs font-semibold px-3 py-1 rounded-full">Web Development</span>
+                            <span class="text-xs text-gray-500 font-medium">Producción</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-charcoal mb-2">Mundo Safari Zoo</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Desarrollo y despliegue del portal web oficial con enfoque en diseño responsivo, optimización de velocidad y secciones de conservación e investigación.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <a href="https://www.mundosafarizoo.com" target="_blank" class="text-xs font-bold text-accentOrange hover:underline flex items-center">
+                            Visitar sitio web <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        <span class="text-xs text-gray-500">HTML / CSS / JS</span>
+                    </div>
+                </div>
+
+                <!-- Sistema de Inventario -->
+                <div class="bg-pureWhite p-7 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-skyTech text-olive text-xs font-semibold px-3 py-1 rounded-full">Desktop App</span>
+                            <span class="text-xs text-gray-500 font-medium">Python / Flet</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-charcoal mb-2">Sistema de Inventario SQL</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Aplicación de escritorio robusta para el control de inventarios, persistencia de datos mediante SQL y alertas de stock en tiempo real.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span class="text-xs text-olive font-medium">Flet / SQLite</span>
+                        <span class="text-xs font-semibold text-charcoal">Control Operativo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiencia y Trayectoria -->
+        <section id="experiencia" class="space-y-8">
+            <div class="border-b border-gray-300 pb-4">
+                <h2 class="font-display font-bold text-2xl sm:text-3xl text-olive">Trayectoria y Formación</h2>
+                <p class="text-sm text-gray-600 mt-1">Experiencia profesional y respaldo académico.</p>
             </div>
 
-            <div class="project-card">
-                <span class="project-tech">Automation / Marketing</span>
-                <h3>Telegram Affiliate Bot</h3>
-                <p>Herramienta de automatización diseñada para estrategias de marketing de afiliados. El bot gestiona la promoción automática en canales, optimizando el alcance y la conversión de enlaces de forma autónoma.</p>
-                <span class="btn" style="color: var(--text-dim); padding-left: 0;">Automatización</span>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-pureWhite p-6 rounded-2xl border border-gray-200 shadow-sm">
+                    <span class="text-xs font-bold text-accentOrange uppercase tracking-wider">Académico</span>
+                    <h4 class="font-display font-bold text-lg text-charcoal mt-1 mb-2">Ingeniería Informática</h4>
+                    <p class="text-xs text-olive font-semibold mb-2">UNELLEZ (2026)</p>
+                    <p class="text-sm text-gray-600">Formación avanzada en arquitectura de software, bases de datos y sistemas computacionales.</p>
+                </div>
 
-            <div class="project-card">
-                <span class="project-tech">Telethon / Multi-agent Support</span>
-                <h3>Telegram Support Bridge</h3>
-                <p>Solución de soporte técnico multi-agente. Permite que un equipo de trabajo centralizado gestione y responda consultas de usuarios a través de una interfaz de bot profesional, mejorando los tiempos de respuesta.</p>
-                <span class="btn" style="color: var(--text-dim); padding-left: 0;">Middleware / Soporte</span>
-            </div>
+                <div class="bg-pureWhite p-6 rounded-2xl border border-gray-200 shadow-sm">
+                    <span class="text-xs font-bold text-accentOrange uppercase tracking-wider">Pasantías</span>
+                    <h4 class="font-display font-bold text-lg text-charcoal mt-1 mb-2">Evolución Robotics & Finances</h4>
+                    <p class="text-xs text-olive font-semibold mb-2">Soporte & 3D Tech</p>
+                    <p class="text-sm text-gray-600">Entrenamiento especializado en hardware, mantenimiento de impresoras 3D y creación de contenidos en realidad virtual.</p>
+                </div>
 
+                <div class="bg-pureWhite p-6 rounded-2xl border border-gray-200 shadow-sm">
+                    <span class="text-xs font-bold text-accentOrange uppercase tracking-wider">Liderazgo TI</span>
+                    <h4 class="font-display font-bold text-lg text-charcoal mt-1 mb-2">Concejalía Santos Marquina</h4>
+                    <p class="text-xs text-olive font-semibold mb-2">Jefe de Departamento TI</p>
+                    <p class="text-sm text-gray-600">Dirección y soporte de infraestructura tecnológica municipal, redes y sistemas de información.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white mt-20 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+            <div>
+                <h3 class="font-display font-bold text-lg">Servitec Gamarra</h3>
+                <p class="text-xs text-gray-400 mt-1">Soluciones tecnológicas prácticas y eficientes desde Mérida, Venezuela.</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:isaiasgamarra97@gmail.com" class="bg-white/10 hover:bg-accentOrange p-3 rounded-xl transition text-sm">
+                    <i class="fas fa-envelope mr-2"></i> Email
+                </a>
+                <a href="https://t.me/tecnimago" target="_blank" class="bg-white/10 hover:bg-accentOrange p-3 rounded-xl transition text-sm">
+                    <i class="fab fa-telegram-plane mr-2"></i> Telegram (@tecnimago)
+                </a>
+                <a href="https://github.com/chaiamaster" target="_blank" class="bg-white/10 hover:bg-accentOrange p-3 rounded-xl transition text-sm">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+            </div>
         </div>
-
-        <h2 class="section-title">Experiencia y Formación</h2>
-        <div class="experience-badge">
-            <strong>Ingeniero Informático</strong> | UNELLEZ 2026 | Mérida, Venezuela.
+        <div class="border-t border-gray-800 text-center py-4 text-xs text-gray-500">
+            © 2026 Servitec Gamarra. Todos los derechos reservados.
         </div>
-        <div class="experience-badge">
-            <strong>Especialista en Tecnología</strong> | Evolución Robotics & Finances C.A. (Pasantías Profesionales).
-        </div>
-        <div class="experience-badge">
-            <strong>Educador Técnico</strong> | Diseño curricular para enseñanza de manejo de I.A. y tecnología.
-        </div>
-
-        <footer>
-            <p>¿Tienes un proyecto en mente?</p>
-            <div class="social-links">
-                <a href="mailto:isaiasgamarra97@gmail.com">Email</a>
-                <a href="https://t.me/tecnimago" target="_blank">Telegram</a>
-            </div>
-        </footer>
-    </div>
+    </footer>
 
 </body>
 </html>
